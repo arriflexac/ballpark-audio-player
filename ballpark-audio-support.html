@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Ballpark Audio — Support</title>
+<style>
+  :root {
+    --bg: #0d0d0d; --surface: #161616; --border: #2a2a2a;
+    --accent: #f5a623; --text: #f0ece4; --muted: #7a7570;
+    --font: 'SF Mono', Menlo, Consolas, 'Courier New', monospace;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { background: var(--bg); color: var(--text); font-family: var(--font); line-height: 1.7; }
+
+  header { background: var(--surface); border-bottom: 1px solid var(--border); padding: 24px 32px; display: flex; align-items: center; gap: 16px; }
+  .logo { font-size: 22px; letter-spacing: 3px; color: var(--accent); font-weight: 700; }
+  .logo-sub { font-size: 11px; color: var(--muted); letter-spacing: 2px; text-transform: uppercase; }
+
+  .container { max-width: 720px; margin: 0 auto; padding: 48px 24px 80px; }
+
+  h1 { font-size: 28px; letter-spacing: 1px; color: var(--accent); margin-bottom: 8px; }
+  h2 { font-size: 16px; letter-spacing: 1px; color: var(--accent); margin: 40px 0 12px; text-transform: uppercase; border-bottom: 1px solid var(--border); padding-bottom: 8px; }
+  p { font-size: 14px; color: var(--muted); margin-bottom: 14px; }
+  p strong { color: var(--text); }
+  ul { list-style: none; padding: 0; margin-bottom: 14px; }
+  ul li { font-size: 14px; color: var(--muted); padding: 6px 0 6px 18px; position: relative; border-bottom: 1px solid #1e1e1e; }
+  ul li::before { content: '—'; position: absolute; left: 0; color: var(--accent); }
+  ul li strong { color: var(--text); }
+  a { color: var(--accent); text-decoration: none; }
+  a:hover { text-decoration: underline; }
+
+  .card { background: var(--surface); border: 1px solid var(--border); padding: 20px 24px; margin-bottom: 16px; }
+  .card h3 { font-size: 14px; color: var(--text); margin-bottom: 8px; letter-spacing: 0.5px; }
+  .card p { margin: 0; }
+
+  .contact-box { background: #1a1500; border: 1px solid var(--accent); padding: 20px 24px; margin-top: 40px; }
+  .contact-box p { color: var(--text); }
+  .contact-box a { font-weight: 600; }
+
+  footer { border-top: 1px solid var(--border); padding: 24px 32px; text-align: center; }
+  footer p { font-size: 11px; color: var(--muted); }
+  footer a { color: var(--muted); text-decoration: underline; }
+</style>
+</head>
+<body>
+
+<header>
+  <div>
+    <div class="logo">BALLPARK AUDIO</div>
+    <div class="logo-sub">Support</div>
+  </div>
+</header>
+
+<div class="container">
+  <h1>Support</h1>
+  <p>Everything you need to get Ballpark Audio working on game day.</p>
+
+  <h2>Getting Started</h2>
+  <ul>
+    <li><strong>Upload clips</strong> — Tap the Upload button and select audio files from your Files app or iCloud Drive. Supported formats: MP3, M4A, AAC, WAV.</li>
+    <li><strong>Choose a tab</strong> — Files are added to whichever tab is active (Walk Ups, Sound FX, or Songs) when you tap Upload.</li>
+    <li><strong>Play a clip</strong> — Tap any card to play. Tap it again to stop. Tapping a different card stops the current clip and starts the new one.</li>
+    <li><strong>Your clips are saved</strong> — All audio is stored on your device. Your library persists across sessions automatically.</li>
+  </ul>
+
+  <h2>Frequently Asked Questions</h2>
+
+  <div class="card">
+    <h3>Audio won't play / nothing happens when I tap a card</h3>
+    <p>Make sure your device volume is turned up. If clips appear dimmed (grey), they are still loading — wait a moment and try again. If a card shows "⚠ Unsupported", the file format is not supported in Safari. Use MP3 or M4A instead.</p>
+  </div>
+
+  <div class="card">
+    <h3>Audio plays on silent / ringer switch</h3>
+    <p>Ballpark Audio is designed to play through the iOS "playback" audio session, which bypasses the silent/ringer switch — the same as Music or Spotify. If audio is not playing on silent, try tapping a card once to unlock the audio session, then try again.</p>
+  </div>
+
+  <div class="card">
+    <h3>Audio slows down or sounds distorted</h3>
+    <p>This can occur if the app has been running for a long time with many clips loaded. Close and reopen the app in Safari to reset the audio session. If distortion occurs with boosted volume, reduce the Boost slider — gain above 100% can cause clipping on clips that are already at maximum loudness.</p>
+  </div>
+
+  <div class="card">
+    <h3>Audio stops when I switch to another app</h3>
+    <p>iOS does not allow web apps to play audio in the background. Switching apps will pause playback. When you return to Ballpark Audio, tap any card to resume the audio session.</p>
+  </div>
+
+  <div class="card">
+    <h3>My walk-up order isn't saving</h3>
+    <p>Clip order is saved automatically whenever you reorder. Make sure you tap <strong>Done</strong> after reordering to confirm your changes. If order is still not saving, check that Safari is not set to clear website data on close (Settings → Safari → Advanced → Website Data).</p>
+  </div>
+
+  <div class="card">
+    <h3>How do I share my soundboard with someone else?</h3>
+    <p>Tap the <strong>Share</strong> button in the top bar. The app will encode all your clips into a single file. When the share sheet appears, choose AirDrop, Messages, or Save to Files. The recipient opens the file in Safari and all clips are ready to play — no uploading required on their end.</p>
+  </div>
+
+  <div class="card">
+    <h3>A clip shows "⚠ Unsupported"</h3>
+    <p>The audio file could not be decoded. This usually means the file format is not supported by Safari (OGG and FLAC are not supported on iOS). Convert the file to MP3 or M4A and re-upload. You can delete the unsupported card by tapping the × button.</p>
+  </div>
+
+  <div class="card">
+    <h3>What audio formats are supported?</h3>
+    <p>MP3, M4A, AAC, and WAV are fully supported on iOS Safari. OGG, FLAC, and WebM are not supported on iOS.</p>
+  </div>
+
+  <div class="card">
+    <h3>The app is slow to load</h3>
+    <p>Ballpark Audio loads your clip library in two passes — cards appear immediately and become playable as each clip finishes decoding in the background. With a large library (20+ clips) the full decode may take 10–20 seconds. This is normal and only happens on first load after a refresh.</p>
+  </div>
+
+  <div class="card">
+    <h3>How do I delete a clip?</h3>
+    <p>Tap the × button in the top-right corner of any card. A confirmation prompt will appear before the clip is removed.</p>
+  </div>
+
+  <h2>Tips</h2>
+  <ul>
+    <li><strong>Fade out</strong> — Tap Fade Out in the status bar to smoothly fade the current Walk Up or Song over 3 seconds.</li>
+    <li><strong>Next up</strong> — The next Walk Up card is highlighted in blue automatically. When the last clip plays, the first clip is queued as next.</li>
+    <li><strong>Reorder Walk Ups</strong> — Tap the Reorder button below the Walk Ups grid to enter reorder mode and use arrow buttons to rearrange your lineup.</li>
+    <li><strong>Boost slider</strong> — The boost slider (100%–400%) amplifies all audio. Use it in loud environments where maximum device volume isn't enough.</li>
+    <li><strong>Reset played songs</strong> — After a game, tap Reset Played in the Songs tab to clear all played markers for the next game.</li>
+    <li><strong>Bluetooth</strong> — Ballpark Audio routes through the iOS playback session, so it respects your selected audio output automatically.</li>
+  </ul>
+
+  <div class="contact-box">
+    <h2 style="border:none;margin-top:0;padding:0 0 8px">Contact Support</h2>
+    <p>Having an issue not covered here? Reach out and we'll get back to you as soon as possible.</p>
+    <p style="margin-top:12px"><a href="mailto:support@ballparkaudio.app">support@ballparkaudio.app</a></p>
+  </div>
+
+</div>
+
+<footer>
+  <p>Ballpark Audio &nbsp;·&nbsp; <a href="privacy.html">Privacy Policy</a> &nbsp;·&nbsp; &copy; 2025</p>
+</footer>
+
+</body>
+</html>
