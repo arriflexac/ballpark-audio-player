@@ -58,72 +58,84 @@
 
   <h2>Getting Started</h2>
   <ul>
-    <li><strong>Upload clips</strong> — Tap the Upload button and select audio files from your Files app or iCloud Drive. Supported formats: MP3, M4A, AAC, WAV.</li>
-    <li><strong>Choose a tab</strong> — Files are added to whichever tab is active (Walk Ups, Sound FX, or Songs) when you tap Upload.</li>
+    <li><strong>Upload clips</strong> — Tap the menu button (top right) and choose Add Audio Files. Select files from your Files app or iCloud Drive. Supported formats: MP3, M4A, AAC, WAV.</li>
+    <li><strong>Choose a tab</strong> — Files are added to whichever tab is active (Walk Ups, Sound FX, or Songs) when you upload.</li>
+    <li><strong>Apple Music</strong> — Switch to the Music tab and tap Add from Apple Music to browse your library and add songs directly.</li>
     <li><strong>Play a clip</strong> — Tap any card to play. Tap it again to stop. Tapping a different card stops the current clip and starts the new one.</li>
-    <li><strong>Your clips are saved</strong> — All audio is stored on your device. Your library persists across sessions automatically.</li>
+    <li><strong>Your clips are saved</strong> — All audio is stored on your device. Your library persists across sessions and app restarts automatically.</li>
   </ul>
 
   <h2>Frequently Asked Questions</h2>
 
   <div class="card">
     <h3>Audio won't play / nothing happens when I tap a card</h3>
-    <p>Make sure your device volume is turned up. If clips appear dimmed (grey), they are still loading — wait a moment and try again. If a card shows "⚠ Unsupported", the file format is not supported in Safari. Use MP3 or M4A instead.</p>
+    <p>Make sure your device volume is turned up and your Bluetooth speaker is connected. If you recently installed the app, allow a moment for clips to finish loading after upload.</p>
   </div>
 
   <div class="card">
-    <h3>Audio plays on silent / ringer switch</h3>
-    <p>Ballpark Audio is designed to play through the iOS "playback" audio session, which bypasses the silent/ringer switch — the same as Music or Spotify. If audio is not playing on silent, try tapping a card once to unlock the audio session, then try again.</p>
+    <h3>Does audio play with the silent switch on?</h3>
+    <p>Yes. Ballpark Audio uses the iOS playback audio session, which bypasses the ringer/silent switch automatically — just like the Music app or Spotify.</p>
   </div>
 
   <div class="card">
-    <h3>Audio slows down or sounds distorted</h3>
-    <p>This can occur if the app has been running for a long time with many clips loaded. Close and reopen the app in Safari to reset the audio session. If distortion occurs with boosted volume, reduce the Boost slider — gain above 100% can cause clipping on clips that are already at maximum loudness.</p>
+    <h3>Does audio keep playing in the background?</h3>
+    <p>Yes. Audio continues when you switch to another app, check your lineup card, or lock your screen. This is a native feature of the app — no workaround needed.</p>
   </div>
 
   <div class="card">
-    <h3>Audio stops when I switch to another app</h3>
-    <p>iOS does not allow web apps to play audio in the background. Switching apps will pause playback. When you return to Ballpark Audio, tap any card to resume the audio session.</p>
+    <h3>Audio sounds distorted at high volume</h3>
+    <p>The Volume Boost slider amplifies audio above the normal maximum. Gain above 100% can cause clipping on clips that are already loud. Try reducing the boost slider if you hear distortion.</p>
   </div>
 
   <div class="card">
     <h3>My walk-up order isn't saving</h3>
-    <p>Clip order is saved automatically whenever you reorder. Make sure you tap <strong>Done</strong> after reordering to confirm your changes. If order is still not saving, check that Safari is not set to clear website data on close (Settings → Safari → Advanced → Website Data).</p>
+    <p>Clip order is saved automatically whenever you reorder. Make sure you tap <strong>Done</strong> after using reorder mode with arrow buttons. Drag-and-drop reordering in the grid saves immediately.</p>
   </div>
 
   <div class="card">
     <h3>How do I share my soundboard with someone else?</h3>
-    <p>Tap the <strong>Share</strong> button in the top bar. The app will encode all your clips into a single file. When the share sheet appears, choose AirDrop, Messages, or Save to Files. The recipient opens the file in Safari and all clips are ready to play — no uploading required on their end.</p>
+    <p>Tap the menu button and choose <strong>Share / Export</strong>. The app packages all your clips into a single <strong>.bpaudio</strong> file. Send it via AirDrop, Messages, or Save to Files. The recipient opens the file and all clips are imported into their Ballpark Audio app.</p>
   </div>
 
   <div class="card">
-    <h3>A clip shows "⚠ Unsupported"</h3>
-    <p>The audio file could not be decoded. This usually means the file format is not supported by Safari (OGG and FLAC are not supported on iOS). Convert the file to MP3 or M4A and re-upload. You can delete the unsupported card by tapping the × button.</p>
+    <h3>How do I import a soundboard from someone else?</h3>
+    <p>If someone sends you a .bpaudio file, tap it to open it directly in Ballpark Audio. You can also tap the menu button, choose <strong>Import Package</strong>, and select the file from your Files app.</p>
+  </div>
+
+  <div class="card">
+    <h3>How does the Music tab work?</h3>
+    <p>The Music tab lets you add songs from your Apple Music library. Tap <strong>Add from Apple Music</strong>, browse or search, and select songs. They appear as cards just like your uploaded clips — with played tracking, fade out, and sort. Note: Apple Music requires a subscription or purchased music in your library.</p>
   </div>
 
   <div class="card">
     <h3>What audio formats are supported?</h3>
-    <p>MP3, M4A, AAC, and WAV are fully supported on iOS Safari. OGG, FLAC, and WebM are not supported on iOS.</p>
-  </div>
-
-  <div class="card">
-    <h3>The app is slow to load</h3>
-    <p>Ballpark Audio loads your clip library in two passes — cards appear immediately and become playable as each clip finishes decoding in the background. With a large library (20+ clips) the full decode may take 10–20 seconds. This is normal and only happens on first load after a refresh.</p>
+    <p>MP3, M4A, AAC, and WAV are fully supported. Upload files from your Files app or iCloud Drive.</p>
   </div>
 
   <div class="card">
     <h3>How do I delete a clip?</h3>
-    <p>Tap the × button in the top-right corner of any card. A confirmation prompt will appear before the clip is removed.</p>
+    <p>Tap the x button in the top-right corner of any card. A confirmation prompt will appear before the clip is removed.</p>
+  </div>
+
+  <div class="card">
+    <h3>How do I sort my clips?</h3>
+    <p>In the Sound FX, Songs, and Music tabs, tap the <strong>Sort</strong> button below the grid. Choose to sort alphabetically (A-Z or Z-A) or by duration (shortest/longest first). In the Music tab you can also sort by artist.</p>
+  </div>
+
+  <div class="card">
+    <h3>What is the "Clear Next Up" button?</h3>
+    <p>In the Walk Ups tab, the next-up highlight shows which card plays next. When the inning ends or your lineup changes, tap <strong>Clear Next Up</strong> to remove the highlight. It will reappear automatically the next time you play a Walk Up clip.</p>
   </div>
 
   <h2>Tips</h2>
   <ul>
-    <li><strong>Fade out</strong> — Tap Fade Out in the status bar to smoothly fade the current Walk Up or Song over 3 seconds.</li>
-    <li><strong>Next up</strong> — The next Walk Up card is highlighted in blue automatically. When the last clip plays, the first clip is queued as next.</li>
-    <li><strong>Reorder Walk Ups</strong> — Tap the Reorder button below the Walk Ups grid to enter reorder mode and use arrow buttons to rearrange your lineup.</li>
-    <li><strong>Boost slider</strong> — The boost slider (100%–400%) amplifies all audio. Use it in loud environments where maximum device volume isn't enough.</li>
-    <li><strong>Reset played songs</strong> — After a game, tap Reset Played in the Songs tab to clear all played markers for the next game.</li>
+    <li><strong>Fade out</strong> — Tap Fade Out in the status bar to smoothly fade the current Walk Up, Song, or Music track over 3 seconds.</li>
+    <li><strong>Next up</strong> — The next Walk Up card is highlighted in blue automatically. When the last clip plays, the first clip is queued as next. Your next-up position is saved between sessions.</li>
+    <li><strong>Drag and drop</strong> — In the Walk Ups tab, long-press and drag a card to reorder it directly in the grid. You can also tap Reorder Walk Ups for a list view with arrow buttons.</li>
+    <li><strong>Boost slider</strong> — The boost slider (100%~400%) amplifies all audio. Use it in loud environments where maximum device volume isn't enough.</li>
+    <li><strong>Reset played songs</strong> — After a game, tap Reset Played in the Songs or Music tab to clear all played markers for the next game.</li>
     <li><strong>Bluetooth</strong> — Ballpark Audio routes through the iOS playback session, so it respects your selected audio output automatically.</li>
+    <li><strong>Share your setup</strong> — Use Export to create a .bpaudio package of your entire soundboard. AirDrop it to your backup operator so they have the same library ready to go.</li>
   </ul>
 
   <div class="contact-box">
@@ -135,7 +147,7 @@
 </div>
 
 <footer>
-  <p>Ballpark Audio &nbsp;·&nbsp; <a href="privacy.html">Privacy Policy</a> &nbsp;·&nbsp; &copy; 2025</p>
+  <p>Ballpark Audio &nbsp;&middot;&nbsp; <a href="privacy.html">Privacy Policy</a> &nbsp;&middot;&nbsp; &copy; 2025</p>
 </footer>
 
 </body>
