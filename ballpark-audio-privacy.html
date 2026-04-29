@@ -50,7 +50,7 @@
 
 <div class="container">
   <h1>Privacy Policy</h1>
-  <p class="effective">Effective date: April 15, 2025</p>
+  <p class="effective">Effective date: April 29, 2025</p>
 
   <div class="highlight">
     <p><strong>The short version:</strong> Ballpark Audio does not collect, transmit, or share any personal data. Everything stays on your device.</p>
@@ -68,11 +68,16 @@
   <h2>Apple Music</h2>
   <p>Ballpark Audio can optionally access your Apple Music library to let you add songs to the Music tab. This access is <strong>requested only when you tap "Add from Apple Music"</strong> and requires your explicit permission via the iOS system prompt. The app does not browse, index, or access your music library in the background. Song references are stored locally on your device and are never transmitted externally.</p>
 
+  <h2>Camera and Lineup Card Scanning</h2>
+  <p>Ballpark Audio can optionally use your device's camera to scan a lineup card and reorder your walk-up clips automatically. The camera is <strong>requested only when you tap "Take a Photo"</strong> on the scan sheet and requires your explicit permission via the iOS system prompt. You can also pick an existing photo from your library instead.</p>
+  <p>All processing happens entirely on your device. The photo is read using <strong>Apple Vision</strong> (and <strong>Apple Foundation Models</strong> on supported devices with Apple Intelligence) to extract player names from the card. The image and the extracted text are <strong>never uploaded, stored long-term, or transmitted off your device</strong>. The app discards the photo as soon as the scan is applied.</p>
+
   <h2>Local Storage</h2>
   <p>Ballpark Audio stores the following data locally on your device only:</p>
   <ul>
     <li><strong>Audio clip files</strong> — stored in the app's Application Support directory. Never leaves your device.</li>
-    <li><strong>Clip metadata</strong> — names, tab assignments, and ordering stored in a local JSON manifest. Never leaves your device.</li>
+    <li><strong>Clip metadata</strong> — names, tab assignments, team assignment, and ordering stored in a local JSON manifest. Never leaves your device.</li>
+    <li><strong>Teams</strong> — names and ordering of walk-up teams you create, stored in a local JSON manifest. Never leaves your device.</li>
     <li><strong>Apple Music song references</strong> — stored in a local JSON file. Never leaves your device.</li>
     <li><strong>Played song history</strong> — stored in UserDefaults. Never leaves your device.</li>
     <li><strong>Volume boost setting</strong> — stored in UserDefaults. Never leaves your device.</li>
@@ -87,7 +92,7 @@
   <p><strong>Ballpark Audio contains no advertising.</strong> We do not serve ads, share data with advertising networks, or use your data for any advertising purposes.</p>
 
   <h2>Third-Party Services</h2>
-  <p>Ballpark Audio does not connect to or share data with any third-party services. The only external system interaction is with the Apple Music framework when you explicitly choose to add songs from your music library. This is a local on-device API provided by iOS and does not transmit data to us or any third party.</p>
+  <p>Ballpark Audio does not connect to or share data with any third-party services. The only external system interactions are with on-device Apple frameworks: the Apple Music framework when you explicitly choose to add songs from your library, and the Apple Vision and Apple Foundation Models frameworks when you explicitly tap to scan a lineup card. All of these are local on-device APIs provided by iOS and do not transmit data to us or any third party.</p>
 
   <h2>Children's Privacy</h2>
   <p>Ballpark Audio does not knowingly collect any information from anyone, including children under the age of 13. Because the app collects no personal information whatsoever, it poses no special privacy risk to users of any age.</p>
