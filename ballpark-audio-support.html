@@ -58,40 +58,166 @@
 
   <h2>Getting Started</h2>
   <ul>
-    <li><strong>Upload clips</strong> — Tap the menu button (top right) and choose Add Audio Files. Select files from your Files app or iCloud Drive. Supported formats: MP3, M4A, AAC, WAV.</li>
-    <li><strong>Choose a tab</strong> — Files are added to whichever tab is active (Walk Ups, Sound FX, or Songs) when you upload.</li>
-    <li><strong>Pick a team</strong> — In the Walk Ups tab, the team picker at the top lets you switch between rosters. New walk-up uploads are added to the currently selected team.</li>
-    <li><strong>Scan a lineup card</strong> — In the team picker, tap Scan Lineup Card to take a photo (or pick one from your library). The app reorders today's batting order automatically and marks anyone not on the card as OUT.</li>
+    <li><strong>Upload your own clips</strong> — Tap the menu button (top right) and choose Add Audio Files. Select files from your Files app or iCloud Drive. Supported formats: MP3, M4A, AAC, WAV.</li>
+    <li><strong>Generate a walk-up</strong> — In the Walk Ups tab, tap the + button. Type the player's name and number, pick a voice, choose music (upload your own or generate it), and tap Generate.</li>
+    <li><strong>Generate a line-up</strong> — Tap + and switch the mode picker to Line Up. Enter your team name and roster (or pull it from a Walk Ups team / import a CSV), tap Build Prompt, then Generate.</li>
+    <li><strong>Generate a sound effect</strong> — In the Sound FX tab, tap + and describe the effect you want (e.g., "wooden bat cracking against a fastball"). Pick a duration up to 6 seconds and tap Generate.</li>
+    <li><strong>Buy credits</strong> — The first time you tap Generate, the app will offer credit packs. Pick the pack that fits and Apple processes the purchase.</li>
+    <li><strong>Choose a tab</strong> — Manually-uploaded files are added to whichever tab is active when you upload (Walk Ups, Sound FX, or Songs).</li>
+    <li><strong>Pick a team</strong> — In the Walk Ups tab, the team picker at the top lets you switch between rosters. New walk-up uploads/generations are added to the currently selected team.</li>
+    <li><strong>Scan a lineup card</strong> — In the team picker, tap Scan Lineup Card to take a photo (or pick one from your library). The app reorders today's batting order automatically.</li>
     <li><strong>Apple Music</strong> — Switch to the Music tab and tap Add from Apple Music to browse your library and add songs directly.</li>
     <li><strong>Play a clip</strong> — Tap any card to play. Tap it again to stop. Tapping a different card stops the current clip and starts the new one.</li>
-    <li><strong>Your clips are saved</strong> — All audio is stored on your device. Your library persists across sessions and app restarts automatically.</li>
   </ul>
 
-  <h2>Frequently Asked Questions</h2>
+  <h2>Credits and Generation (New in v2.0)</h2>
+
+  <div class="card">
+    <h3>What are credits and why do I need them?</h3>
+    <p>Credits power the AI generation features — walk-up announcers, line-up announcers, custom music, and sound effects. Every generation costs a small fraction of a credit. You buy credits in packs through Apple's In-App Purchase (12 / 24 / 48 credit packs starting at $4.99). Credits never expire and follow your Apple ID across devices.</p>
+  </div>
+
+  <div class="card">
+    <h3>How much does each generation cost?</h3>
+    <p>Generation costs vary by what you're producing:</p>
+    <ul>
+      <li><strong>Walk-Up announcer</strong> (≤80 chars): 0.5 credits</li>
+      <li><strong>Walk-Up music</strong> (10–30s): 1.5 credits</li>
+      <li><strong>Line-Up announcer</strong> (≤400 chars): 1.5 credits</li>
+      <li><strong>Line-Up music</strong>: 2.5 / 3.0 / 3.5 credits depending on length (60–70s / 71–80s / 81–90s)</li>
+      <li><strong>Sound effect</strong> (≤6s): 0.5 credits</li>
+    </ul>
+    <p>A complete walk-up (announcer + music) is 2 credits; a complete line-up is 4–5 credits. The Buy Credits sheet shows you "enough for ~N walk-ups or ~N line-ups" for each pack.</p>
+  </div>
+
+  <div class="card">
+    <h3>Do credits expire?</h3>
+    <p>No. Credits never expire. They sit in your account until you use them.</p>
+  </div>
+
+  <div class="card">
+    <h3>Will my credits sync to my iPad?</h3>
+    <p>Yes. Credits are tied to your Apple ID and follow you to any device signed into the same Apple ID. If you don't see your balance on a new device, tap Restore Purchases at the bottom of the Buy Credits sheet.</p>
+  </div>
+
+  <div class="card">
+    <h3>I want to use my own ElevenLabs key instead</h3>
+    <p>Open the App Settings sheet (hamburger menu, top right of the app), scroll to the API Key section, and paste your ElevenLabs key. It's stored in your device's Keychain and never sent to our servers — generation requests go directly from your device to ElevenLabs and you're billed by ElevenLabs under your own account. You can switch between credit mode and BYOK mode any time using the Generation Source toggle.</p>
+  </div>
+
+  <div class="card">
+    <h3>I generated something but it sounds wrong / I want to try again</h3>
+    <p>Every generation flow has a Regenerate button. The cost depends on the action — TTS (announcer) reuses cached audio if the text is unchanged, so re-rendering the mix is free. Regenerating the music produces a new take and costs the music credit again. Use the take chips to flip between previous music takes without paying.</p>
+  </div>
+
+  <div class="card">
+    <h3>Generation says "Not Enough Credits" but I just bought a pack</h3>
+    <p>The balance is cached locally for speed and refreshes when you open the Buy Credits sheet. If you bought credits on a different device, tap Restore Purchases at the bottom of the sheet to reconcile your balance from the server.</p>
+  </div>
+
+  <div class="card">
+    <h3>How do I get a refund for credits?</h3>
+    <p>Apple processes all refunds for In-App Purchases. Go to <a href="https://reportaproblem.apple.com/">reportaproblem.apple.com</a>, sign in with your Apple ID, and request a refund for the Ballpark Audio credit pack. If Apple grants the refund, our server is notified automatically and the corresponding credits are subtracted from your balance.</p>
+  </div>
+
+  <h2>Walk-Up Generation</h2>
+
+  <div class="card">
+    <h3>How do I generate a walk-up clip?</h3>
+    <p>In the Walk Ups tab, tap <strong>+</strong>. Make sure the mode picker is set to <strong>Walk-Up</strong>. Type the announcer line manually or use Auto-Generate to combine a player's name and jersey with a stadium-announcer phrase. Pick a voice, choose your music (upload a file or generate one), then tap <strong>Generate</strong>.</p>
+  </div>
+
+  <div class="card">
+    <h3>Can I use my own music for a walk-up?</h3>
+    <p>Yes. In the Music section of the Create Walk-Up sheet, tap <strong>Choose File</strong> to pick any MP3, M4A, AAC, or WAV file from your Files app. Drag the marker on the waveform to align the announcer's last word with a downbeat. You can also pick from the audio of any video file (mp4/mov/m4v).</p>
+  </div>
+
+  <div class="card">
+    <h3>Why is my announcer prompt limited to 80 characters?</h3>
+    <p>The 80-character cap keeps generation costs predictable and walk-up reads punchy ("Now batting, number 12, Smith!" is well under). Longer reads are billed at higher rates by ElevenLabs and the cap protects your credits. If you need a longer read, switch the mode picker to Line Up — line-up announcer reads can be up to 400 characters.</p>
+  </div>
+
+  <h2>Line-Up Generation</h2>
+
+  <div class="card">
+    <h3>How do I generate a line-up clip?</h3>
+    <p>Open the Create sheet from any tab (or the + on Songs) and switch the mode picker to <strong>Line Up</strong>. Enter your team name, fill in your roster (jersey number + name per row), and the announcer prompt builds automatically as you type. Edit it freely if you want to add a custom intro line, drop a player, or rephrase the cheer. Tap Generate when you're ready.</p>
+  </div>
+
+  <div class="card">
+    <h3>Can I pull my roster from an existing Walk Ups team?</h3>
+    <p>Yes. In Line Up mode, tap <strong>Pull from Walk-Up</strong> at the top of the roster section and pick a team. Players' jersey numbers and names are imported and you can edit them before generating. Useful when one of your teams already has walk-ups but you want a single roster-intro Line Up clip.</p>
+  </div>
+
+  <div class="card">
+    <h3>Can I import a roster from a CSV?</h3>
+    <p>Yes. In Line Up mode, tap <strong>Import from CSV</strong>. The CSV should have two columns: jersey number and player name (header row optional). Lines with a "#" in the jersey column are skipped, and so are positions like P / C / 1B / 2B that sometimes appear next to names.</p>
+  </div>
+
+  <div class="card">
+    <h3>I edited the announcer prompt and now Build Prompt won't update it</h3>
+    <p>That's by design — once you've typed custom text, the auto-build won't silently overwrite your edits. Tap <strong>Build Prompt</strong> and the app will ask if you want to replace your custom prompt with a fresh build from the roster. You can also tap the <strong>Clear</strong> button next to the prompt label and the auto-build will resume.</p>
+  </div>
+
+  <div class="card">
+    <h3>How long can my line-up music be?</h3>
+    <p>60 to 90 seconds. The cost goes up slightly at 71s and again at 81s (2.5 / 3.0 / 3.5 credits), so for the same vibe a shorter bed saves credits. The Line-Up recipe ducks the music under the announcer and lifts it back into a stadium cheer at the end, so the music length doesn't have to match the announcer length exactly — the app handles the alignment.</p>
+  </div>
+
+  <h2>Sound FX Generation and Categories</h2>
+
+  <div class="card">
+    <h3>How do I generate a sound effect?</h3>
+    <p>In the Sound FX tab, tap <strong>+</strong> and describe what you want in the prompt field — the more specific the better ("wooden bat cracking against a fastball, then a brief crowd reaction"). Pick a duration up to 6 seconds, tap Generate, and listen to the take. You can regenerate as many times as you like to find the right one before saving.</p>
+  </div>
+
+  <div class="card">
+    <h3>How do I organize sound effects into categories?</h3>
+    <p>Tap <strong>Create Category</strong> at the top of the Sound FX tab and give it a name (e.g., "Bat Cracks", "Crowd Reactions", "Walk-On Stings"). Drag any clip onto the category to assign it, or use the gear menu on the clip and choose "Move to Category". A reserved <strong>Generated</strong> category catches every clip you generate so they're easy to find.</p>
+  </div>
+
+  <div class="card">
+    <h3>I deleted a category — what happened to the clips inside?</h3>
+    <p>They moved to the reserved <strong>Uncategorized</strong> bucket. You can drag them into a new category or leave them there.</p>
+  </div>
+
+  <h2>Voices and Models</h2>
+
+  <div class="card">
+    <h3>What announcer voices are included?</h3>
+    <p>Three baseball-style announcer voices ship with the app: <strong>Baseball Announcer — Male v1</strong>, <strong>Male v2</strong>, and <strong>Female v1</strong>. The voice picker (in App Settings and in every Create sheet's advanced section) shows a Play button next to each voice so you can hear a sample before you commit.</p>
+  </div>
+
+  <div class="card">
+    <h3>Can I use my own ElevenLabs voice?</h3>
+    <p>Yes. In the voice picker, choose <strong>Custom Voice ID…</strong> and paste your voice ID. The app uses it for every generation until you switch back to one of the curated voices. This works in both credit mode and BYOK mode.</p>
+  </div>
+
+  <div class="card">
+    <h3>What about the model picker in Advanced Settings?</h3>
+    <p>The TTS model controls the voice quality and speed tradeoff. The default (<strong>Eleven v3</strong>) produces the most natural stadium-announcer reads. You can swap to any model your account exposes via /v1/models — useful if you want lower latency or a specific feature only available in a different model.</p>
+  </div>
+
+  <h2>General FAQ</h2>
 
   <div class="card">
     <h3>How do I manage multiple teams?</h3>
-    <p>In the Walk Ups tab, tap the <strong>team picker</strong> at the top of the screen. From the dropdown you can switch teams, add a new team, rename the current team, or delete the current team. Each team has its own players, lineup order, and next-up indicator. Sound FX, Songs, and Music are shared across all teams. When you upgrade from a previous version, your existing walk-ups become a single team called "Default" — you can rename it from the picker.</p>
+    <p>In the Walk Ups tab, tap the <strong>team picker</strong> at the top of the screen. From the dropdown you can switch teams, add a new team, rename the current team, or delete the current team. Each team has its own players, lineup order, and next-up indicator. Sound FX, Songs, and Music are shared across all teams.</p>
   </div>
 
   <div class="card">
     <h3>How do I scan a lineup card?</h3>
-    <p>Open the team picker in the Walk Ups tab and choose <strong>Scan Lineup Card</strong>. You can either take a photo with the in-app document scanner (auto-detects the card edges and corrects perspective) or pick an existing photo from your library. The app reads the card on your device — no internet required — and matches detected names to your existing walk-up clips for that team. You'll see a review screen where you can adjust any matches before tapping Apply.</p>
+    <p>Open the team picker in the Walk Ups tab and choose <strong>Scan Lineup Card</strong>. Take a photo with the in-app document scanner or pick an existing photo from your library. The app reads the card on your device — no internet required — and matches detected names to your existing walk-up clips for that team. You'll see a review screen where you can adjust matches before tapping Apply.</p>
   </div>
 
   <div class="card">
     <h3>What happens when I apply a scanned lineup?</h3>
-    <p>Players the app matched on the card are reordered to match today's batting order at the top of your Walk Ups grid. Players on the team who are NOT on the card are automatically marked OUT (disabled) for the game — they show up in the disabled section at the bottom. To bring a disabled player back, tap the <strong>+</strong> on their card.</p>
+    <p>Players the app matched on the card are reordered to match today's batting order at the top of your Walk Ups grid. Players on the team who are NOT on the card are automatically marked OUT for the game. To bring a disabled player back, tap the <strong>+</strong> on their card.</p>
   </div>
 
   <div class="card">
     <h3>The scanner missed a player or matched the wrong one</h3>
-    <p>On the review screen, every detected row has a small dropdown showing which clip the app picked. Tap it to override: pick a different clip from the suggestions or the full list, or choose <strong>Skip this row</strong> to ignore it. The colored dot tells you the match confidence — green is high, yellow is medium, orange is low, red is "no match". Apply only commits the matches you've confirmed.</p>
-  </div>
-
-  <div class="card">
-    <h3>My lineup card has fielding positions and other info — does that matter?</h3>
-    <p>No. The scanner specifically ignores fielding positions (P, C, 1B, 2B, etc.), inning columns (1st, 2nd, ...), dashes, score columns, dates, opponent names, coach names, and other card scaffolding. It focuses only on the batting order and player names. If your card has more than just the lineup, that's fine.</p>
+    <p>On the review screen, every detected row has a small dropdown showing which clip the app picked. Tap it to override: pick a different clip from the suggestions or the full list, or choose <strong>Skip this row</strong> to ignore it. The colored dot tells you the match confidence — green is high, yellow is medium, orange is low, red is "no match".</p>
   </div>
 
   <div class="card">
@@ -126,7 +252,7 @@
 
   <div class="card">
     <h3>Does audio keep playing in the background?</h3>
-    <p>Yes. Audio continues when you switch to another app, check your lineup card, or lock your screen. This is a native feature of the app — no workaround needed.</p>
+    <p>Yes. Audio continues when you switch to another app, check your lineup card, or lock your screen.</p>
   </div>
 
   <div class="card">
@@ -135,13 +261,8 @@
   </div>
 
   <div class="card">
-    <h3>My walk-up order isn't saving</h3>
-    <p>Clip order is saved automatically whenever you reorder. Make sure you tap <strong>Done</strong> after using reorder mode with arrow buttons. Drag-and-drop reordering in the grid saves immediately.</p>
-  </div>
-
-  <div class="card">
     <h3>How do I share my soundboard with someone else?</h3>
-    <p>Tap the menu button and choose <strong>Share / Export</strong>. The app packages all your clips and teams into a single <strong>.bpaudio</strong> file. Send it via AirDrop, Messages, or Save to Files. The recipient opens the file and everything imports into their Ballpark Audio app — including the team structure for walk-ups.</p>
+    <p>Tap the menu button and choose <strong>Share / Export</strong>. The app packages all your clips and teams into a single <strong>.bpaudio</strong> file. Send it via AirDrop, Messages, or Save to Files. The recipient opens the file and everything imports into their Ballpark Audio app — including the team structure for walk-ups and your sound-fx categories.</p>
   </div>
 
   <div class="card">
@@ -150,48 +271,36 @@
   </div>
 
   <div class="card">
-    <h3>How does the Music tab work?</h3>
-    <p>The Music tab lets you add songs from your Apple Music library. Tap <strong>Add from Apple Music</strong>, browse or search, and select songs. They appear as cards just like your uploaded clips — with played tracking, fade out, and sort. Note: Apple Music requires a subscription or purchased music in your library.</p>
-  </div>
-
-  <div class="card">
     <h3>What audio formats are supported?</h3>
     <p>MP3, M4A, AAC, and WAV are fully supported. Upload files from your Files app or iCloud Drive.</p>
   </div>
 
   <div class="card">
-    <h3>How do I disable a player for today's game?</h3>
-    <p>In the Walk Ups tab, tap the <strong>x</strong> on a player's card and choose <strong>Disable</strong>. The card moves to a greyed-out "Disabled" section at the bottom of the screen, marked "OUT". That player is skipped in the walk-up sequence and next-up rotation. To bring them back, tap the <strong>+</strong> button on their disabled card — they'll be added to the end of the active lineup.</p>
-  </div>
-
-  <div class="card">
     <h3>How do I delete a clip?</h3>
-    <p>Tap the x button in the top-right corner of any card. For Walk Ups, you'll see options to Disable or Remove — choose <strong>Remove</strong> to permanently delete it. For Sound FX, Songs, and Music, a confirmation prompt will appear before the clip is removed.</p>
+    <p>Tap the x button in the top-right corner of any card. Walk Ups show a multi-action options sheet (Make Next Up, Disable, Re-assign, Export, Remove); choosing Remove asks for a final confirmation since walk-up audio represents real work. Sound FX, Songs, and Music show a single confirmation prompt before the clip is removed.</p>
   </div>
 
   <div class="card">
     <h3>How do I sort my clips?</h3>
-    <p>In the Sound FX, Songs, and Music tabs, tap the <strong>Sort</strong> button below the grid. Choose to sort alphabetically (A-Z or Z-A) or by duration (shortest/longest first). In the Music tab you can also sort by artist.</p>
+    <p>In the Sound FX, Songs, and Music tabs, tap the <strong>Sort</strong> button below the grid. Choose alphabetical (A-Z or Z-A) or by duration (shortest/longest first). In the Music tab you can also sort by artist.</p>
   </div>
 
   <div class="card">
-    <h3>What is the "Clear Next Up" button?</h3>
-    <p>In the Walk Ups tab, the next-up highlight shows which card plays next. When the inning ends or your lineup changes, tap <strong>Clear Next Up</strong> to remove the highlight. It will reappear automatically the next time you play a Walk Up clip.</p>
+    <h3>What is the "Music Under Announcer" slider?</h3>
+    <p>In Advanced Settings of the Create sheet, the Music Under Announcer slider controls how loud the music sits underneath the announcer's voice. Lower values give the announcer more clarity; higher values give the music more presence. Applies to both walk-ups and line-ups.</p>
   </div>
 
   <h2>Tips</h2>
   <ul>
-    <li><strong>Use teams for multiple rosters</strong> — One app can hold walk-up sets for multiple teams. Switch between them in the team picker at the top of the Walk Ups tab. Each team keeps its own lineup, disabled players, and next-up position.</li>
-    <li><strong>Scan today's lineup card</strong> — Open the team picker and tap <strong>Scan Lineup Card</strong>. The app reorders today's batters and marks anyone not on the card as OUT, all on-device. You still get a review screen before anything is applied.</li>
+    <li><strong>Pick the cheapest line-up music tier</strong> — 60–70s music at 2.5 credits is the same vibe as 81–90s but saves a credit per generation.</li>
+    <li><strong>Pull rosters from Walk Ups</strong> — If you already have walk-ups for a team, the Pull from Walk-Up button populates your Line Up roster in one tap.</li>
+    <li><strong>Cache hits are free</strong> — Re-rendering the mix after dragging the marker doesn't re-charge you for the announcer; only the music gen and the announcer text actually call ElevenLabs.</li>
+    <li><strong>Take advantage of takes</strong> — Music gen produces takes you can flip between. If take 2 sounds better than take 3, just tap the take 2 chip — no need to regenerate.</li>
+    <li><strong>Use teams for multiple rosters</strong> — One app can hold walk-up sets for multiple teams. Switch in the team picker.</li>
     <li><strong>Read the dot</strong> — The status bar dot color tells you what's happening at a glance: red = walk-up, green = song or music, orange = fading, blue (next to "Next up") = queued, grey = idle.</li>
     <li><strong>Watch the countdown</strong> — During any playback, the timer below the now-playing line counts down so you know how much is left.</li>
-    <li><strong>Fade out</strong> — Tap Fade Out in the status bar to smoothly fade the current Walk Up, Song, or Music track over 3 seconds. For DRM-protected Apple Music tracks, this becomes a Stop button instead.</li>
-    <li><strong>Next up</strong> — The next Walk Up card is highlighted in blue automatically. When the last clip plays, the first clip is queued as next. Your next-up position is saved per team.</li>
-    <li><strong>Disable players</strong> — If a player is missing today's game, disable their Walk Up card instead of deleting it. They stay in your library and can be re-enabled with one tap for the next game.</li>
-    <li><strong>Drag and drop</strong> — In the Walk Ups tab, long-press and drag a card to reorder it directly in the grid. The drop target highlights as you drag. You can also tap Reorder Walk Ups for a list view with arrow buttons.</li>
+    <li><strong>Fade out</strong> — Tap Fade Out in the status bar to smoothly fade the current Walk Up, Song, or Music track over 3 seconds.</li>
     <li><strong>Boost slider</strong> — The boost slider (100%~400%) amplifies all audio. Use it in loud environments where maximum device volume isn't enough.</li>
-    <li><strong>Reset played songs</strong> — After a game, tap Reset Played in the Songs or Music tab to clear all played markers for the next game.</li>
-    <li><strong>Bluetooth</strong> — Ballpark Audio routes through the iOS playback session, so it respects your selected audio output automatically.</li>
     <li><strong>Share your setup</strong> — Use Export to create a .bpaudio package of your entire soundboard. AirDrop it to your backup operator so they have the same library and team structure ready to go.</li>
   </ul>
 
@@ -204,7 +313,7 @@
 </div>
 
 <footer>
-  <p>Ballpark Audio &nbsp;&middot;&nbsp; <a href="privacy.html">Privacy Policy</a> &nbsp;&middot;&nbsp; &copy; 2025</p>
+  <p>Ballpark Audio &nbsp;&middot;&nbsp; <a href="ballpark-audio-privacy.html">Privacy Policy</a> &nbsp;&middot;&nbsp; &copy; 2026</p>
 </footer>
 
 </body>
