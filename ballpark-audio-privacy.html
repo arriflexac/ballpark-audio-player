@@ -50,20 +50,43 @@
 
 <div class="container">
   <h1>Privacy Policy</h1>
-  <p class="effective">Effective date: April 29, 2025</p>
+  <p class="effective">Effective date: May 5, 2026</p>
 
   <div class="highlight">
-    <p><strong>The short version:</strong> Ballpark Audio does not collect, transmit, or share any personal data. Everything stays on your device.</p>
+    <p><strong>The short version:</strong> Ballpark Audio doesn't ask for an account, email, or any personal information. The only data we transmit is what's strictly required to power optional audio-generation features you choose to use, and that data is tied to an anonymous UUID — never to you personally.</p>
   </div>
 
-  <p>This Privacy Policy describes how Ballpark Audio ("the app", "we", "our") handles information when you use the application. We are committed to your privacy and have designed the app from the ground up to operate entirely on your device with no external data collection of any kind.</p>
+  <p>This Privacy Policy describes how Ballpark Audio ("the app", "we", "our") handles information when you use the application. We are committed to your privacy and have designed the app to keep your data on your device by default. The optional audio-generation features (introduced in v2.0) require limited server-side processing to fulfill your generation request, described in detail below.</p>
 
   <h2>Information We Collect</h2>
-  <p><strong>We collect no personal information.</strong> Ballpark Audio does not require you to create an account, provide an email address, or share any personal details to use the app.</p>
+  <p><strong>We do not collect any personal information.</strong> Ballpark Audio does not require you to create an account, provide an email address, or share any personal details to use the app. We never know your name, your email, or your real-world identity.</p>
+
+  <h2>Anonymous User Identifier</h2>
+  <p>When you first launch the app, Ballpark Audio generates a random anonymous UUID and stores it in your iCloud Key-Value Store so the same identifier follows you across your own iPhone and iPad. This UUID is the <strong>only</strong> way we identify a "user" — it cannot be linked to your name, email, Apple ID, or any other identifying information. Its sole purpose is to track your credit balance for the optional audio-generation features described below.</p>
+  <p>If you never use the credit-based generation features, this UUID is never transmitted off your device.</p>
 
   <h2>Audio Files</h2>
   <p>Audio files you upload to Ballpark Audio are stored <strong>exclusively on your device</strong> in the app's private storage directory. Your audio files are never uploaded to any server, never transmitted over the internet, and never accessible to anyone other than you.</p>
   <p>When you use the Export &amp; Share feature, the app creates a .bpaudio package file on your device containing your audio clips. Sharing this file with others is entirely at your discretion and under your control — the app itself plays no role in that transmission.</p>
+
+  <h2>Optional Audio Generation (v2.0)</h2>
+  <p>Ballpark Audio v2.0 introduces optional, paid features that generate custom audio (walk-up announcer reads, line-up announcer reads, music beds, and sound effects) on demand. These features run through a server-side proxy hosted on Supabase, which then calls ElevenLabs (a third-party AI audio provider) to produce the audio.</p>
+  <p>When and only when you actively trigger a generation, the following information is transmitted from the app:</p>
+  <ul>
+    <li><strong>Your anonymous UUID</strong> — used to verify your credit balance and decrement it for the request. Never linked to your identity.</li>
+    <li><strong>The text or prompt you entered</strong> — for example, the announcer line ("Now batting, number 12, Smith!"), the music genre + descriptive prompt ("Rock, instrumental, builds toward a downbeat"), or the sound-effect prompt ("wooden bat cracking against a fastball"). This text is what ElevenLabs needs to generate the audio you asked for.</li>
+    <li><strong>Generation parameters</strong> — the voice ID you picked, the music length you chose, the cost in credits, etc.</li>
+  </ul>
+  <p>The generated audio file is returned to your device and saved locally. The server discards the prompt and audio after the request completes; we do not retain or analyze your generation prompts.</p>
+  <p>If you never tap a Generate button, none of this information ever leaves your device.</p>
+
+  <h2>Bring Your Own ElevenLabs Key</h2>
+  <p>If you prefer, you can paste your own ElevenLabs API key into App Settings to bypass the credit system entirely. When you do this:</p>
+  <ul>
+    <li>The key is stored in your device's <strong>iOS Keychain</strong>. It is never transmitted to our servers.</li>
+    <li>Generation requests go directly from your device to ElevenLabs using your key. Ballpark Audio's servers play no role.</li>
+    <li>You are billed by ElevenLabs directly under your own account.</li>
+  </ul>
 
   <h2>Apple Music</h2>
   <p>Ballpark Audio can optionally access your Apple Music library to let you add songs to the Music tab. This access is <strong>requested only when you tap "Add from Apple Music"</strong> and requires your explicit permission via the iOS system prompt. The app does not browse, index, or access your music library in the background. Song references are stored locally on your device and are never transmitted externally.</p>
@@ -72,17 +95,25 @@
   <p>Ballpark Audio can optionally use your device's camera to scan a lineup card and reorder your walk-up clips automatically. The camera is <strong>requested only when you tap "Take a Photo"</strong> on the scan sheet and requires your explicit permission via the iOS system prompt. You can also pick an existing photo from your library instead.</p>
   <p>All processing happens entirely on your device. The photo is read using <strong>Apple Vision</strong> (and <strong>Apple Foundation Models</strong> on supported devices with Apple Intelligence) to extract player names from the card. The image and the extracted text are <strong>never uploaded, stored long-term, or transmitted off your device</strong>. The app discards the photo as soon as the scan is applied.</p>
 
+  <h2>In-App Purchases</h2>
+  <p>Credit packs are sold through Apple's In-App Purchase system. Apple processes the payment and shares only a signed transaction receipt with our server, which we use to verify the purchase and credit your anonymous UUID accordingly. We never see your credit card information, your Apple ID, or your billing address — Apple keeps that data and never shares it with us.</p>
+  <p>Credits never expire. Apple-issued refunds are honored automatically when our server is notified of the refund.</p>
+
   <h2>Local Storage</h2>
-  <p>Ballpark Audio stores the following data locally on your device only:</p>
+  <p>Ballpark Audio stores the following data locally on your device:</p>
   <ul>
     <li><strong>Audio clip files</strong> — stored in the app's Application Support directory. Never leaves your device.</li>
-    <li><strong>Clip metadata</strong> — names, tab assignments, team assignment, and ordering stored in a local JSON manifest. Never leaves your device.</li>
+    <li><strong>Clip metadata</strong> — names, tab assignments, team assignment, sound-fx category, and ordering stored in a local JSON manifest. Never leaves your device.</li>
     <li><strong>Teams</strong> — names and ordering of walk-up teams you create, stored in a local JSON manifest. Never leaves your device.</li>
+    <li><strong>Sound FX categories</strong> — names and ordering of categories you create. Never leaves your device.</li>
     <li><strong>Apple Music song references</strong> — stored in a local JSON file. Never leaves your device.</li>
     <li><strong>Played song history</strong> — stored in UserDefaults. Never leaves your device.</li>
-    <li><strong>Volume boost setting</strong> — stored in UserDefaults. Never leaves your device.</li>
+    <li><strong>Volume boost setting, mix sliders, and per-mode preferences</strong> — stored in UserDefaults. Never leaves your device.</li>
     <li><strong>Next-up position</strong> — stored in UserDefaults. Never leaves your device.</li>
+    <li><strong>ElevenLabs API key</strong> (if you provided one) — stored in your iOS Keychain. Never leaves your device.</li>
+    <li><strong>Cached credit balance</strong> — stored in UserDefaults so the UI is fast on launch. Reconciled with the server when you open the Buy Credits sheet.</li>
   </ul>
+  <p>The anonymous UUID described above is also stored in iCloud Key-Value Store so the same identifier (and thus the same credit balance) follows you across your iPhone and iPad.</p>
   <p>All of this data can be cleared at any time by deleting the app from your device (Settings &rarr; General &rarr; iPhone Storage &rarr; Ballpark Audio &rarr; Delete App).</p>
 
   <h2>Analytics and Tracking</h2>
@@ -92,19 +123,30 @@
   <p><strong>Ballpark Audio contains no advertising.</strong> We do not serve ads, share data with advertising networks, or use your data for any advertising purposes.</p>
 
   <h2>Third-Party Services</h2>
-  <p>Ballpark Audio does not connect to or share data with any third-party services. The only external system interactions are with on-device Apple frameworks: the Apple Music framework when you explicitly choose to add songs from your library, and the Apple Vision and Apple Foundation Models frameworks when you explicitly tap to scan a lineup card. All of these are local on-device APIs provided by iOS and do not transmit data to us or any third party.</p>
+  <p>Ballpark Audio uses the following third parties only to fulfill features you actively trigger:</p>
+  <ul>
+    <li><strong>Apple In-App Purchase</strong> — for credit pack purchases. Apple's <a href="https://www.apple.com/legal/privacy/">privacy policy</a> applies.</li>
+    <li><strong>Supabase</strong> — hosts our backend that proxies generation requests, tracks credit balances against anonymous UUIDs, and verifies StoreKit receipts. Supabase's <a href="https://supabase.com/privacy">privacy policy</a> applies. We do not share any personal information with Supabase; only the anonymous UUID and generation prompt text described above.</li>
+    <li><strong>ElevenLabs</strong> — produces the audio when you tap Generate. ElevenLabs' <a href="https://elevenlabs.io/privacy">privacy policy</a> applies. The prompt text and chosen voice are sent to ElevenLabs (proxied through our Supabase backend) and the resulting audio is returned. ElevenLabs receives no anonymous UUID, no Apple ID, and no other identifier from our system.</li>
+  </ul>
+  <p>If you never use the generation features, no third-party service receives any data from Ballpark Audio.</p>
 
   <h2>Children's Privacy</h2>
-  <p>Ballpark Audio does not knowingly collect any information from anyone, including children under the age of 13. Because the app collects no personal information whatsoever, it poses no special privacy risk to users of any age.</p>
+  <p>Ballpark Audio does not knowingly collect any information from anyone, including children under the age of 13. The only "user" identifier is an anonymous UUID generated by the device, and we have no way to associate it with any individual.</p>
 
   <h2>Data Security</h2>
-  <p>Because all data is stored locally on your device and never transmitted externally, the security of your data is governed by your device's own security (passcode, Face ID, Touch ID, device encryption). We have no access to your data and therefore cannot expose it.</p>
+  <p>All local data is governed by your device's own security (passcode, Face ID, Touch ID, device encryption). The anonymous UUID and credit balance stored on our Supabase backend are protected by row-level security and accessible only via signed requests from your device. The ElevenLabs API key on our server is stored as an encrypted environment variable; it is never sent to or stored on your device.</p>
 
   <h2>Changes to This Policy</h2>
-  <p>If we make material changes to this Privacy Policy, we will update the effective date at the top of this page. Continued use of the app after changes are posted constitutes acceptance of the updated policy. Because we collect no data, changes to this policy are unlikely to affect your privacy in any way.</p>
+  <p>If we make material changes to this Privacy Policy, we will update the effective date at the top of this page. Continued use of the app after changes are posted constitutes acceptance of the updated policy.</p>
 
   <h2>Your Rights</h2>
-  <p>Because we collect no personal data, there is nothing for us to provide, correct, or delete on your behalf. All app data is on your device and fully under your control. You can delete all app data at any time by removing the app from your device.</p>
+  <p>Because we do not collect personal data, there is no "user account" to delete or correct. You can:</p>
+  <ul>
+    <li><strong>Stop using credit-based generation</strong> — switch to your own ElevenLabs key, or simply stop generating. No new server-side data is created.</li>
+    <li><strong>Reset your anonymous UUID</strong> — Delete the app and reinstall. A new UUID is generated and any previous credit balance becomes inaccessible (this is irreversible — please use Restore Purchases first if you have unused credits).</li>
+    <li><strong>Request deletion of your server-side credit balance</strong> — Email the address below with the anonymous UUID (visible in App Settings → Advanced) and we'll erase any associated server records.</li>
+  </ul>
 
   <h2>Contact</h2>
   <p>If you have any questions about this Privacy Policy, please contact us at:</p>
@@ -113,7 +155,7 @@
 </div>
 
 <footer>
-  <p>Ballpark Audio &nbsp;&middot;&nbsp; <a href="support.html">Support</a> &nbsp;&middot;&nbsp; &copy; 2025</p>
+  <p>Ballpark Audio &nbsp;&middot;&nbsp; <a href="ballpark-audio-support.html">Support</a> &nbsp;&middot;&nbsp; &copy; 2026</p>
 </footer>
 
 </body>
