@@ -50,7 +50,7 @@
 
 <div class="container">
   <h1>Privacy Policy</h1>
-  <p class="effective">Effective date: May 5, 2026</p>
+  <p class="effective">Effective date: May 9, 2026</p>
 
   <div class="highlight">
     <p><strong>The short version:</strong> Ballpark Audio doesn't ask for an account, email, or any personal information. The only data we transmit is what's strictly required to power optional audio-generation features you choose to use, and that data is tied to an anonymous UUID — never to you personally.</p>
@@ -66,8 +66,23 @@
   <p>If you never use the credit-based generation features, this UUID is never transmitted off your device.</p>
 
   <h2>Audio Files</h2>
-  <p>Audio files you upload to Ballpark Audio are stored <strong>exclusively on your device</strong> in the app's private storage directory. Your audio files are never uploaded to any server, never transmitted over the internet, and never accessible to anyone other than you.</p>
+  <p>Audio files you upload to or generate inside Ballpark Audio are stored on your device in the app's private storage directory. They are never uploaded to any server we operate and we have no access to them.</p>
+  <p>If you have iCloud Sync enabled (see below), your audio files also travel through your own private iCloud container so they're available on your other devices. They never pass through our servers.</p>
   <p>When you use the Export &amp; Share feature, the app creates a .bpaudio package file on your device containing your audio clips. Sharing this file with others is entirely at your discretion and under your control — the app itself plays no role in that transmission.</p>
+
+  <h2>iCloud Sync (v2.1)</h2>
+  <p>Starting in v2.1, Ballpark Audio can sync your soundboard across every device signed into the same iCloud account. iCloud Sync is <strong>on by default</strong> and can be turned off at any time in App Settings &rarr; iCloud Sync.</p>
+  <p>When iCloud Sync is enabled, the following data is uploaded to <strong>your own private CloudKit container</strong> (<code>iCloud.com.arriflexac.ballparkaudio</code>) and pulled down to your other devices:</p>
+  <ul>
+    <li><strong>Audio files</strong> — walk-up clips, generated and uploaded sound effects, songs (delivered as CloudKit assets keyed off a content hash so the same file isn't uploaded twice).</li>
+    <li><strong>Clip metadata</strong> — names, tab assignments, team assignment, sound-fx category, ordering, next-up position.</li>
+    <li><strong>Teams and sound-fx categories</strong> — names and ordering.</li>
+    <li><strong>Apple Music song references</strong> — track ID, title, artist, duration. The audio of Apple Music tracks is never uploaded; only the reference is synced so each device can resolve the track in its own local library.</li>
+    <li><strong>App settings</strong> — volume boost, mix sliders, voice picker, sort preferences, and similar per-device preferences are mirrored across devices for convenience.</li>
+  </ul>
+  <p><strong>This data lives in your own private iCloud account, not in any system we operate.</strong> Apple stores it under your Apple ID and Apple's <a href="https://www.apple.com/legal/privacy/">privacy policy</a> applies to its handling. Apple has stated that data in a private CloudKit container is end-to-end encrypted between your devices and is not accessible to Apple. The developer of Ballpark Audio cannot read, list, or export your synced data.</p>
+  <p>Cross-device wake-ups for sync are delivered via Apple's silent push (the <code>remote-notification</code> background mode). These pushes carry no payload that we control beyond a "your data changed" signal and are routed through Apple Push Notification service.</p>
+  <p>If you turn iCloud Sync off, the local copy of your library on the current device is unaffected and the app stops uploading or pulling changes. To delete data already in your iCloud container, sign in to <a href="https://www.icloud.com/">iCloud.com</a>, open Settings, and use the "Manage Storage" tools — or delete the app on every signed-in device. We have no ability to delete your iCloud data on your behalf.</p>
 
   <h2>Optional Audio Generation (v2.0)</h2>
   <p>Ballpark Audio v2.0 introduces optional, paid features that generate custom audio (walk-up announcer reads, line-up announcer reads, music beds, and sound effects) on demand. These features run through a server-side proxy hosted on Supabase, which then calls ElevenLabs (a third-party AI audio provider) to produce the audio.</p>
@@ -114,7 +129,8 @@
     <li><strong>Cached credit balance</strong> — stored in UserDefaults so the UI is fast on launch. Reconciled with the server when you open the Buy Credits sheet.</li>
   </ul>
   <p>The anonymous UUID described above is also stored in iCloud Key-Value Store so the same identifier (and thus the same credit balance) follows you across your iPhone and iPad.</p>
-  <p>All of this data can be cleared at any time by deleting the app from your device (Settings &rarr; General &rarr; iPhone Storage &rarr; Ballpark Audio &rarr; Delete App).</p>
+  <p>If you have iCloud Sync turned on, the items marked above with "Never leaves your device" also travel through your own private CloudKit container so they appear on your other signed-in devices. See the <strong>iCloud Sync</strong> section above for details.</p>
+  <p>All local data can be cleared at any time by deleting the app from your device (Settings &rarr; General &rarr; iPhone Storage &rarr; Ballpark Audio &rarr; Delete App). Data in your iCloud container is managed via Apple's iCloud storage tools.</p>
 
   <h2>Analytics and Tracking</h2>
   <p><strong>We do not use any analytics, tracking, or telemetry.</strong> There are no third-party SDKs, no advertising frameworks, no crash reporters, and no usage tracking of any kind embedded in Ballpark Audio.</p>
@@ -125,6 +141,7 @@
   <h2>Third-Party Services</h2>
   <p>Ballpark Audio uses the following third parties only to fulfill features you actively trigger:</p>
   <ul>
+    <li><strong>Apple iCloud / CloudKit</strong> — when iCloud Sync is enabled, your soundboard data is stored in your own private CloudKit container under your Apple ID. Apple's <a href="https://www.apple.com/legal/privacy/">privacy policy</a> applies. We do not have access to this data.</li>
     <li><strong>Apple In-App Purchase</strong> — for credit pack purchases. Apple's <a href="https://www.apple.com/legal/privacy/">privacy policy</a> applies.</li>
     <li><strong>Supabase</strong> — hosts our backend that proxies generation requests, tracks credit balances against anonymous UUIDs, and verifies StoreKit receipts. Supabase's <a href="https://supabase.com/privacy">privacy policy</a> applies. We do not share any personal information with Supabase; only the anonymous UUID and generation prompt text described above.</li>
     <li><strong>ElevenLabs</strong> — produces the audio when you tap Generate. ElevenLabs' <a href="https://elevenlabs.io/privacy">privacy policy</a> applies. The prompt text and chosen voice are sent to ElevenLabs (proxied through our Supabase backend) and the resulting audio is returned. ElevenLabs receives no anonymous UUID, no Apple ID, and no other identifier from our system.</li>
