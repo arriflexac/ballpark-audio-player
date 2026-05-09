@@ -70,6 +70,57 @@
     <li><strong>Play a clip</strong> — Tap any card to play. Tap it again to stop. Tapping a different card stops the current clip and starts the new one.</li>
   </ul>
 
+  <h2>iCloud Sync (New in v2.1)</h2>
+
+  <div class="card">
+    <h3>Will my soundboard sync to my iPad?</h3>
+    <p>Yes — that's the headline feature of v2.1. Walk-up clips, sound effects, songs, teams, lineups, sound-fx categories, and Apple Music selections all sync automatically across every device signed into the same iCloud account. Audio files travel along with their metadata, so a clip you generate on your iPhone will appear (and play) on your iPad without any export/import. iCloud Sync is on by default.</p>
+  </div>
+
+  <div class="card">
+    <h3>How do I turn iCloud Sync on or off?</h3>
+    <p>Open the App Settings sheet (hamburger menu, top right of the app) and scroll to the <strong>iCloud Sync</strong> section. Toggle the switch to enable or disable. Disabling sync stops all uploading and downloading on the current device — your local library is untouched, and the data already in your iCloud container is left in place for other devices.</p>
+  </div>
+
+  <div class="card">
+    <h3>How long does the first sync take?</h3>
+    <p>It depends on the size of your library. The first sync uploads every existing clip's audio file to your iCloud container; on a typical 30-clip library that's usually under a minute on Wi-Fi. After that, subsequent changes (a new clip, a renamed team) propagate within seconds. The status line under the iCloud Sync toggle shows the last sync time so you can confirm it's running.</p>
+  </div>
+
+  <div class="card">
+    <h3>Sync isn't working — what should I check?</h3>
+    <p>Walk through the list in order:</p>
+    <ul>
+      <li><strong>Same Apple ID on both devices</strong> — Settings &rarr; [your name] at the top should show the same Apple ID. Sync is per Apple ID, so a Family Sharing setup uses each member's own private container, not a shared one.</li>
+      <li><strong>iCloud Drive turned on</strong> — Settings &rarr; [your name] &rarr; iCloud &rarr; iCloud Drive must be enabled. CloudKit (which Ballpark Audio uses for sync) rides on the same iCloud account state.</li>
+      <li><strong>Ballpark Audio enabled in iCloud apps</strong> — Same Settings page, scroll to "Apps Using iCloud" &rarr; Ballpark Audio &rarr; toggle on.</li>
+      <li><strong>Sync toggle on inside the app</strong> — App Settings &rarr; iCloud Sync &rarr; switch on.</li>
+      <li><strong>Wi-Fi or cellular working</strong> — sync uploads can be large (audio files), so the first sync prefers Wi-Fi.</li>
+      <li><strong>Tap Sync Now</strong> — the button in App Settings &rarr; iCloud Sync forces an immediate refresh.</li>
+    </ul>
+    <p>If the status line under the toggle shows an error, take a screenshot and email support — that line is the most useful diagnostic.</p>
+  </div>
+
+  <div class="card">
+    <h3>I synced from my iPhone but a few Apple Music songs are flagged "UNAVAILABLE" on my iPad</h3>
+    <p>Apple Music songs sync as a reference (track ID + title + artist), not as audio. If a song is in your iPhone's local Apple Music library but not in your iPad's, the iPad has nothing to play. The card is flagged <strong>UNAVAILABLE</strong> and tapping it opens a picker so you can substitute a track that does exist on the iPad. You can also long-press any Music card and choose <strong>Pick a different library track…</strong> to relink it manually. Once relinked, that device plays the substitute and the original device keeps playing the original.</p>
+  </div>
+
+  <div class="card">
+    <h3>Does iCloud Sync use my mobile data?</h3>
+    <p>iCloud Sync follows your iCloud Drive cellular setting. If you've allowed iCloud over cellular in Settings &rarr; [your name] &rarr; iCloud &rarr; iCloud Drive, sync will run on cellular too. Otherwise it waits for Wi-Fi. The first sync of a large library can be hundreds of megabytes (audio files are big) — Wi-Fi is recommended for the initial pass.</p>
+  </div>
+
+  <div class="card">
+    <h3>What does iCloud Sync NOT sync?</h3>
+    <p>A few things stay device-local on purpose: played/unplayed state for songs (so resetting played on game day doesn't propagate to your bench device), and the Apple Music audio itself (sync stores only the reference, since the audio belongs to your local Apple Music library). Credit balance is also synced separately via your Apple ID rather than the soundboard sync.</p>
+  </div>
+
+  <div class="card">
+    <h3>Where is my data stored and can the developer see it?</h3>
+    <p>iCloud Sync uses your <strong>own private CloudKit container</strong> under your Apple ID. The developer of Ballpark Audio cannot list, read, or export anything in that container — Apple manages it the same way it manages Photos or iCloud Drive. See the <a href="ballpark-audio-privacy.html">Privacy Policy</a> for full details.</p>
+  </div>
+
   <h2>Credits and Generation (New in v2.0)</h2>
 
   <div class="card">
