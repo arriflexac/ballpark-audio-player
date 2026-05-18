@@ -50,7 +50,7 @@
 
 <div class="container">
   <h1>Privacy Policy</h1>
-  <p class="effective">Effective date: May 9, 2026</p>
+  <p class="effective">Effective date: May 17, 2026</p>
 
   <div class="highlight">
     <p><strong>The short version:</strong> Ballpark Audio doesn't ask for an account, email, or any personal information. The only data we transmit is what's strictly required to power optional audio-generation features you choose to use, and that data is tied to an anonymous UUID — never to you personally.</p>
@@ -104,7 +104,16 @@
   </ul>
 
   <h2>Apple Music</h2>
-  <p>Ballpark Audio can optionally access your Apple Music library to let you add songs to the Music tab. This access is <strong>requested only when you tap "Add from Apple Music"</strong> and requires your explicit permission via the iOS system prompt. The app does not browse, index, or access your music library in the background. Song references are stored locally on your device and are never transmitted externally.</p>
+  <p>Ballpark Audio can optionally access your Apple Music library to let you add songs to the Music tab. This access is <strong>requested only when you tap "Add from Library"</strong> and requires your explicit permission via the iOS system prompt. The app does not browse, index, or access your music library in the background. Song references are stored locally on your device and are never transmitted externally.</p>
+
+  <p><strong>Apple Music catalog search</strong> (v2.2) lets you search Apple's full catalog directly from the app via MusicKit. When you type a query, MusicKit sends it to Apple's servers — that exchange is between you and Apple. The developer never sees your search queries. Catalog search and playback require an active Apple Music subscription on your device.</p>
+
+  <p>Apple Music's subscription is licensed for personal listening only. The first time you open catalog search, the app shows a one-time reminder about this — public-venue use generally needs separate music-licensing arrangements (ASCAP/BMI/SESAC and similar). Full disclosure also lives in App Settings → About Apple Music.</p>
+
+  <h2>Browse Sound Library (v2.2)</h2>
+  <p>The Browse Sound Library feature lets you search Freesound for Creative-Commons-licensed sound effects without leaving the app. When you type a query, it is sent through our Supabase backend (which holds the Freesound API key) to Freesound's search API. The query string is forwarded as-is; <strong>no anonymous UUID, no device identifier, and no Apple ID is attached to the request</strong> — Freesound has no way to associate the query with any individual user.</p>
+  <p>Audio previews and downloads (when you tap Add) are fetched directly from Freesound's public URLs by your device. Those requests go straight to Freesound's servers without passing through our backend.</p>
+  <p>Imported clips carry the creator's name and the Creative Commons license they chose; this metadata is stored on the clip locally and syncs along with your soundboard via iCloud (when enabled). Your iCloud sync is in your own private container — the developer cannot see which clips you import or who made them.</p>
 
   <h2>Camera and Lineup Card Scanning</h2>
   <p>Ballpark Audio can optionally use your device's camera to scan a lineup card and reorder your walk-up clips automatically. The camera is <strong>requested only when you tap "Take a Photo"</strong> on the scan sheet and requires your explicit permission via the iOS system prompt. You can also pick an existing photo from your library instead.</p>
@@ -145,8 +154,10 @@
     <li><strong>Apple In-App Purchase</strong> — for credit pack purchases. Apple's <a href="https://www.apple.com/legal/privacy/">privacy policy</a> applies.</li>
     <li><strong>Supabase</strong> — hosts our backend that proxies generation requests, tracks credit balances against anonymous UUIDs, and verifies StoreKit receipts. Supabase's <a href="https://supabase.com/privacy">privacy policy</a> applies. We do not share any personal information with Supabase; only the anonymous UUID and generation prompt text described above.</li>
     <li><strong>ElevenLabs</strong> — produces the audio when you tap Generate. ElevenLabs' <a href="https://elevenlabs.io/privacy">privacy policy</a> applies. The prompt text and chosen voice are sent to ElevenLabs (proxied through our Supabase backend) and the resulting audio is returned. ElevenLabs receives no anonymous UUID, no Apple ID, and no other identifier from our system.</li>
+    <li><strong>Freesound</strong> — provides Creative-Commons-licensed sound effects for the Browse Sound Library feature (v2.2). Freesound's <a href="https://freesound.org/help/about/#privacy">privacy policy</a> applies. Search queries pass through our Supabase backend to Freesound's search API; previews and downloads come directly from Freesound to your device. No anonymous UUID or other identifier is attached to either request.</li>
+    <li><strong>Apple MusicKit</strong> — used for Apple Music catalog search and catalog playback (v2.2). Queries and playback requests go directly between your device and Apple. Apple's <a href="https://www.apple.com/legal/privacy/">privacy policy</a> applies. The developer never sees your queries or what you play.</li>
   </ul>
-  <p>If you never use the generation features, no third-party service receives any data from Ballpark Audio.</p>
+  <p>If you never use the generation features, the Browse Sound Library feature, or Apple Music catalog search, no third-party service receives any data from Ballpark Audio.</p>
 
   <h2>Children's Privacy</h2>
   <p>Ballpark Audio does not knowingly collect any information from anyone, including children under the age of 13. The only "user" identifier is an anonymous UUID generated by the device, and we have no way to associate it with any individual.</p>
