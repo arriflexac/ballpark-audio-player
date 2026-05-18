@@ -66,9 +66,63 @@
     <li><strong>Choose a tab</strong> — Manually-uploaded files are added to whichever tab is active when you upload (Walk Ups, Sound FX, or Songs).</li>
     <li><strong>Pick a team</strong> — In the Walk Ups tab, the team picker at the top lets you switch between rosters. New walk-up uploads/generations are added to the currently selected team.</li>
     <li><strong>Scan a lineup card</strong> — In the team picker, tap Scan Lineup Card to take a photo (or pick one from your library). The app reorders today's batting order automatically.</li>
-    <li><strong>Apple Music</strong> — Switch to the Music tab and tap Add from Apple Music to browse your library and add songs directly.</li>
+    <li><strong>Apple Music</strong> — Switch to the Music tab. Tap Search Apple Music to find any song in the catalog (v2.2 — requires an Apple Music subscription to play), or Add from Library for songs already on this device.</li>
     <li><strong>Play a clip</strong> — Tap any card to play. Tap it again to stop. Tapping a different card stops the current clip and starts the new one.</li>
   </ul>
+
+  <h2>New in v2.2</h2>
+
+  <div class="card">
+    <h3>What's a play queue?</h3>
+    <p>The play queue (new in v2.2) lets you line up Songs and Apple Music tracks to play automatically with a smooth 4-second crossfade between non-DRM tracks. Tap the <strong>+</strong> icon on the bottom-right of any Song or Music card to add it to the queue. A queue chip appears in the footer showing how many tracks are queued; tap it to open the queue sheet where you can reorder, remove individual tracks, or clear the whole thing.</p>
+  </div>
+
+  <div class="card">
+    <h3>Does the queue survive an app restart?</h3>
+    <p>Yes. Both the queue itself and a paused playback position survive being backgrounded or quit. Reopen the app and tap Resume in the queue sheet to pick up where you left off. The queue is per-device — it doesn't sync across iCloud (a queue is "what am I listening to right now," not part of your shared library).</p>
+  </div>
+
+  <div class="card">
+    <h3>What happens if I play a Walk-Up or Sound FX while a queue is going?</h3>
+    <p>The queue pauses immediately (no fade — Walk-Ups need to play right away), the Walk-Up or Sound FX plays through, and the queue stays paused. Tap Resume in the queue sheet (or the footer Resume button) when you're ready to continue.</p>
+  </div>
+
+  <div class="card">
+    <h3>How does Sound FX trim work?</h3>
+    <p>From the gear menu on any Sound FX card, choose Adjust Trim. A waveform editor opens with two draggable amber handles for start and end. Drag to choose the window; tap Preview to hear it. The trim is non-destructive — the source audio file is never modified, so you can keep adjusting forever.</p>
+    <p><strong>v2.2 gestures</strong>: pinch on the waveform to zoom in on a specific section, two-finger drag to pan around. Double-tap to reset to the full view. While preview is playing, tap <strong>Set Start</strong> or <strong>Set End</strong> to snap the corresponding trim point to wherever the audio is right now — handy for marking moments by ear.</p>
+  </div>
+
+  <div class="card">
+    <h3>Can I import a song from my music library as a Sound FX?</h3>
+    <p>Yes (v2.2). Open Generate Sound FX from the hamburger menu and switch to the <strong>Import</strong> tab. Three sources are available:</p>
+    <ul>
+      <li><strong>From File</strong> — pick any audio file from Files or iCloud Drive</li>
+      <li><strong>From Apple Music Library</strong> — pick a song you have locally; non-DRM tracks copy their audio into the app, DRM tracks save just the start/end timestamps and play through Apple Music on demand</li>
+      <li><strong>From Apple Music Catalog</strong> — search Apple Music's full catalog and save start/end timestamps for any track</li>
+    </ul>
+    <p>For Apple Music–sourced clips you can use the live-scrub Set Start / Set End buttons during preview to mark trim points by ear. Tap the resulting SFX card to play just the trimmed window.</p>
+  </div>
+
+  <div class="card">
+    <h3>What's Browse Sound Library?</h3>
+    <p>From the hamburger menu (v2.2). Search Freesound for Creative-Commons-licensed sound effects without leaving the app, preview each result inline, and tap Add to import directly into your Sound FX tab. The attribution (creator name + CC license) is stored on the clip and travels through iCloud sync and .bpaudio package exports — so credits stay with the audio.</p>
+  </div>
+
+  <div class="card">
+    <h3>How do I turn on Light Mode?</h3>
+    <p>Tap the hamburger menu (top-right) and choose Light Mode. The whole app switches to a high-contrast cream palette designed to read well in bright sunlight. Per-device — your iPad in the press box can stay in Dark while your iPhone in the dugout runs Light. Not iCloud-synced (since the "I'm outdoors right now" decision is local).</p>
+  </div>
+
+  <div class="card">
+    <h3>How do I AirPlay to a speaker?</h3>
+    <p>Tap the AirPlay icon in the top header (left of the hamburger). The system picker opens with every AirPlay-capable device on your network — HomePods, Apple TVs, AirPlay-enabled receivers, Bluetooth devices. For AirPlay 2 receivers you can select multiple speakers at once with checkmarks; the app's audio plays through all of them in sync. Audio follows the selected route even if you switch mid-game via Control Center.</p>
+  </div>
+
+  <div class="card">
+    <h3>What does the Apple Music warning mean?</h3>
+    <p>The first time you tap Search Apple Music or import from the catalog, you'll see a one-time message about licensing. Apple Music subscriptions are licensed for personal listening only — they don't include the public-performance rights you'd need to play recorded music in a venue like a ballpark, restaurant, or gym. For public-venue use, prefer Sound FX you generate, audio files you've imported (and have the right to play publicly), or CC-licensed clips from Browse Sound Library. The full disclosure lives in App Settings → About Apple Music.</p>
+  </div>
 
   <h2>iCloud Sync (New in v2.1)</h2>
 
@@ -283,12 +337,12 @@
 
   <div class="card">
     <h3>What is the "DRM" badge on a Music card?</h3>
-    <p>Apple Music subscription tracks are protected by Apple's FairPlay DRM. These tracks play through Apple's system music player, which doesn't allow apps to fade volume programmatically. While a DRM-protected song is playing, the Fade Out button is replaced with a red <strong>Stop</strong> button so you can still halt playback quickly.</p>
+    <p>Apple Music subscription tracks are protected by Apple's FairPlay DRM. These tracks play through Apple's system music player, which doesn't allow apps to fade audio directly. As of v2.2 the Fade Out button still works on DRM tracks — the app briefly ramps the device's <em>system</em> output volume down to 0 over 3 seconds, stops the music, and restores the original volume. The badge is kept as a heads-up that the track plays through Apple's system player rather than the app's own audio engine.</p>
   </div>
 
   <div class="card">
-    <h3>Can I fade out a DRM-protected song some other way?</h3>
-    <p>Not from inside the app — Apple's restrictions prevent it. Two workarounds: (1) <strong>Pre-edit the song</strong> in GarageBand or another audio editor with a fade built in, export as MP3 or M4A, and upload it via the Songs tab — full fade support since it's your own file. (2) <strong>Buy the song</strong> from the iTunes Store (purchased downloads, not subscription) — those don't have FairPlay and play through the full audio engine with fade support.</p>
+    <h3>Why does the system volume briefly dip when I fade out a DRM song?</h3>
+    <p>That's the v2.2 fade implementation. Because Apple doesn't let apps touch the volume of DRM-protected playback directly, the only knob we can turn is the device's output volume — which is what the Fade Out button does for those tracks. The 80-millisecond restore at the end snaps the volume back to where you had it. If you have any other audio playing during the fade (a notification, another app), it'll fade alongside the music briefly.</p>
   </div>
 
   <div class="card">
